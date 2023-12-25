@@ -1,0 +1,9 @@
+.gallery{
+    display: inline-block;
+    border: 6px groove black;
+}
+
+#footer_autores_img{
+    color: lightgreen;
+    font-size: 20px;
+}
