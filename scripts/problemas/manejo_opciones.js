@@ -1,4 +1,4 @@
-export function actualizar_opciones(opcion_base, opcion_derivada, seleccion_opciones) {
+export default function actualizar_opciones(opcion_base, opcion_derivada, seleccion_opciones) {
     const subopciones = document.getElementById(opcion_derivada);
     
     // Limpiar opciones actuales
