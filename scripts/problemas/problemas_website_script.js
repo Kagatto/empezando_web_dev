@@ -4,35 +4,27 @@ const oPracticas = "opcion_practicas";
 const oProblemas = "opcion_problema";
 
 document.getElementById(oSeccion).onchange = function () {
-    let selectedValue = this.value;
+    const path = "../../data/opciones_seleccion/opciones_seccion.json";
+    const selected_value = this.value;
+    dinamic_change_options(selected_value, oSeccion, oPracticas, path);
 
-    fetch("../../data/data_practicas_seccion.json")
+    document.getElementById(oProblemas).innerHTML = "";
+};
+
+document.getElementById(oPracticas).onchange = function () {
+    // Change path depending on section value
+    const select_path = element => "../../data/opciones_seleccion/opciones_practicas_" + element.value + ".json";
+    const path = select_path(document.getElementById(oSeccion));
+    const selected_value = this.value;
+    dinamic_change_options(selected_value, oPracticas, oProblemas, path);
+};
+
+function dinamic_change_options(selected_value, section_changing, to_change, data_path) {
+    fetch(data_path)
         .then(response => response.json())
         .then(data => {
-            // TODO:
-            // No actualiza los valores aunque arr si contiene lo que deberia
-            let arr = data[selectedValue] || [];
-            console.log(arr);
-            actualizar_opciones(oSeccion, oPracticas, arr);
+            const arr = data[selected_value] || [];
+            actualizar_opciones(section_changing, to_change, arr);
         })
-        .catch(error => {
-            console.error('Error fetching JSON:', error);
-        });
-};
-
-/*
-document.getElementById(oSeccion).onchange = function() {
-    //Funcion que hace lo de las secciones
-    let arr = {
-        info1: ["", "Practica 3", "Practica 4", "Practica 5"],
-        info2: ["", "Practica 1", "Practica 2", "Practica 3", "Practica 5", "Practica 5", "Practica 6"],
-    };
-    actualizar_opciones(oSeccion, oPracticas, arr);
-};
-
-document.getElementById(oPracticas).onchange = function() {
-    //Funcion que hace lo de las secciones
-    let arr = {};
-    actualizar_opciones(oPracticas, oProblemas, arr);
-};
-*/
+        .catch(error => console.error('Error fetching JSON:', error));
+}
