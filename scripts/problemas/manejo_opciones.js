@@ -1,4 +1,23 @@
-export default function actualizar_opciones(opcion_base, opcion_derivada, seleccion_opciones) {
+export default function actualizar_opciones(opcion_base, opcion_derivada, opciones_nuevas) {
+    const subopciones = document.getElementById(opcion_derivada);
+    // Limpiar opciones actuales
+    subopciones.innerHTML = "";
+    
+    if(opciones_nuevas) {
+        opciones_nuevas.forEach(elegir => {
+            const opcion = document.createElement("option");
+            opcion.textContent = elegir;
+            opcion.value = validOptionValue(elegir);
+            subopciones.add(opcion);
+        });
+    }
+}
+
+export function validOptionValue(str) {
+    return str.replace(/\s/g, "").toLowerCase();
+}
+
+export function actualizar_opciones_objeto(opcion_base, opcion_derivada, seleccion_opciones) {
     const subopciones = document.getElementById(opcion_derivada);
     
     // Limpiar opciones actuales
@@ -17,8 +36,4 @@ export default function actualizar_opciones(opcion_base, opcion_derivada, selecc
             subopciones.add(opcion);
         });
     }
-}
-
-export function validOptionValue(str) {
-    return str.replace(/\s/g, "").toLowerCase();
 }

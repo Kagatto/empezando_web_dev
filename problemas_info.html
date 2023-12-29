@@ -1,64 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>
-        Resolviendo Problemas
-    </title>
-    
-    <link rel="icon" href="imgs/favicon.png">
-    
-    <link rel="stylesheet" href="styles/estilo_general.css">
-    <link rel="stylesheet" href="styles/problemas_style.css">
-</head>
-<body>
-    <header>
-        <h1
-        id="saludo_header">
-            Los Problemas >:] (de info y en general)
-        </h1>
-        <a href="main_page.html">
-            <button>
-                Pagina principal
-            </button>
-        </a>
-    </header>
-    
-    <main>
-        <label for="opcion_seccion">
-            Que seccion de problemas desea ver:
-        </label>
-        <select
-        id="opcion_seccion">
-            <option value=""></option>
-            <option value="info1">Info 1</option>
-            <option value="info2">Info 2</option>
-            <option value="personal">Personal</option>
-        </select>
-        <br>
-        
-        <label for="opcion_practicas">
-            Que practica desea ver:
-        </label>
-        <select
-        id="opcion_practicas">
-            <!-- Opciones se actualizan dinamicamente usando Javascript -->
-            <option></option>
-        </select>
-        <br>
-        
-        <label for="opcion_problema">
-            Que problema desea ver:
-        </label>
-        <select id="opcion_problema">
-            <!-- Opciones se actualizan dinamicamente usando Javascript -->
-            <option></option>
-        </select>
-        <br>
-    </main>
-    
-    <script type="module" src="scripts/problemas/problemas_website_script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+            Resolviendo Problemas
+        </title>
+
+        <link rel="icon" href="imgs/favicon.png">
+
+        <link rel="stylesheet" href="styles/estilo_general.css">
+        <link rel="stylesheet" href="styles/problemas_style.css">
+    </head>
+    <body>
+        <header>
+            <h1
+                id="saludo_header">
+                Los Problemas >:] (de info y en general)
+            </h1>
+            <nav>
+                <a href="main_page.html">
+                    <button>
+                        Pagina principal
+                    </button>
+                </a>
+            </nav>
+        </header>
+
+        <main>
+            <label for="opcion_seccion">
+                Que seccion de problemas desea ver:
+            </label>
+            <select
+                id="opcion_seccion">
+                <option value=""></option>
+                <option value="info1">Info 1</option>
+                <option value="info2">Info 2</option>
+                <option value="personal">Personal</option>
+            </select>
+            <br>
+
+            <label for="opcion_practicas">
+                Que practica desea ver:
+            </label>
+            <select
+                id="opcion_practicas">
+                <!-- Opciones se actualizan dinamicamente usando Javascript -->
+                <option></option>
+            </select>
+            <br>
+
+            <label for="opcion_problema">
+                Que problema desea ver:
+            </label>
+            <select id="opcion_problema">
+                <!-- Opciones se actualizan dinamicamente usando Javascript -->
+                <option></option>
+            </select>
+            <br>
+        </main>
+
+        <script type="module" src="scripts/problemas/problemas_website_script.js"></script>
+    </body>
 </html>
