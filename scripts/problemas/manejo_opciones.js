@@ -1,51 +1,29 @@
-export default function dinamic_change_options(selected_value, section_changing, to_change, data_path) {
-    // const path_data = obtain_data_path(section_changing);
-    fetch(data_path)
+export default function dinamic_change_options(selected_value, TO_CHANGE, DATA_PATH) {
+    fetch(DATA_PATH)
         .then(response => response.json())
         .then(data => {
-            const arr = data[selected_value] || [];
-            actualizar_opciones(to_change, arr);
+            const ARRAY = data[selected_value] || [];
+            actualizar_opciones(TO_CHANGE, ARRAY);
         })
         .catch(error => console.error('Error fetching JSON:', error));
 }
 
-export function actualizar_opciones(opcion_derivada, opciones_nuevas) {
-    const subopciones = document.getElementById(opcion_derivada);
+export function actualizar_opciones(TO_CHANGE, OPCIONES_NUEVAS) {
+    const SUBOPCIONES = document.getElementById(TO_CHANGE);
     // Limpiar opciones actuales
-    subopciones.innerHTML = "";
+    SUBOPCIONES.innerHTML = "";
     
-    if(opciones_nuevas) {
-        opciones_nuevas.forEach(elegir => {
-            const opcion = document.createElement("option");
-            opcion.textContent = elegir;
-            opcion.value = validOptionValue(elegir);
-            subopciones.add(opcion);
+    if(OPCIONES_NUEVAS) {
+        OPCIONES_NUEVAS.forEach(elegir => {
+            const OPCION = document.createElement("option");
+            OPCION.textContent = elegir;
+            OPCION.value = validOptionValue(elegir);
+            SUBOPCIONES.add(OPCION);
         });
     }
 }
 
 export function validOptionValue(str) {
     return str.replace(/\s/g, "").toLowerCase();
-}
-
-export function actualizar_opciones_objeto(opcion_base, opcion_derivada, seleccion_opciones) {
-    const subopciones = document.getElementById(opcion_derivada);
-    
-    // Limpiar opciones actuales
-    subopciones.innerHTML = "";
-    
-    // Agregar nuevas opciones según la sección seleccionada
-    const opcion_seleccionada = document.getElementById(opcion_base).value;
-    
-    const array_opciones = seleccion_opciones[opcion_seleccionada];
-    
-    if(array_opciones) {
-        array_opciones.forEach(elegir => {
-            const opcion = document.createElement("option");
-            opcion.textContent = elegir;
-            opcion.value = validOptionValue(elegir);
-            subopciones.add(opcion);
-        });
-    }
 }
 

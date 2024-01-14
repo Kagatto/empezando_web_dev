@@ -3,20 +3,29 @@ const OSECCION = "opcion_seccion";
 const OPRACTICAS = "opcion_practicas";
 const OPROBLEMAS = "opcion_problema";
 
+window.onload = function() {
+    update_secciones();
+};
+
 document.getElementById(OSECCION).onchange = function () {
-    const path = "../../data/opciones_seleccion/opciones_seccion.json";
-    const selected_value = this.value;
-    dinamic_change_options(selected_value, OSECCION, OPRACTICAS, path);
+    const PATH = "../../data/opciones_seleccion/opciones_practicas.json";
+    const SELECTED_VALUE = this.value;
+    dinamic_change_options(SELECTED_VALUE, OPRACTICAS, PATH);
 
     document.getElementById(OPROBLEMAS).innerHTML = "";
 };
 
 document.getElementById(OPRACTICAS).onchange = function () {
     // Change path depending on section value
-    const select_path = element => "../../data/opciones_seleccion/opciones_practicas_" + element.value + ".json";
-    const path = select_path(document.getElementById(OSECCION));
+    const SELECT_PATH = element => "../../data/opciones_seleccion/opciones_" + element.value + ".json";
+    const PATH = SELECT_PATH(document.getElementById(OSECCION));
 
-    const selected_value = this.value;
+    const SELECTED_VALUE = this.value;
 
-    dinamic_change_options(selected_value, OPRACTICAS, OPROBLEMAS, path);
+    dinamic_change_options(SELECTED_VALUE, OPROBLEMAS, PATH);
 };
+
+function update_secciones() {
+    const PATH = "../../data/opciones_seleccion/opciones_seccion.json";
+    dinamic_change_options("", OSECCION, PATH);
+}
