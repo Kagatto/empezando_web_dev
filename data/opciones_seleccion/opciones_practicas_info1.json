@@ -1,6 +1,10 @@
 {
     "practica3" : ["", "Problema 1", "Problema 2", "Problema 3", "Problema 4"],
-    "practica4" : ["", "Problema 1", "Problema 2", "Problema 3", "Problema 4", "Problema 5", "Problema 6"],
+
+    "practica4" : ["", "Problema 1", "Problema 2", "Problema 3", "Problema 4",
+        "Problema 5", "Problema 6"],
+
     "practica5" : ["", "VS CPU", "Dos jugadores"],
+
     "practica6" : ["", "Red social"]
 }

@@ -1,4 +1,15 @@
-export default function actualizar_opciones(opcion_base, opcion_derivada, opciones_nuevas) {
+export default function dinamic_change_options(selected_value, section_changing, to_change, data_path) {
+    // const path_data = obtain_data_path(section_changing);
+    fetch(data_path)
+        .then(response => response.json())
+        .then(data => {
+            const arr = data[selected_value] || [];
+            actualizar_opciones(to_change, arr);
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+}
+
+export function actualizar_opciones(opcion_derivada, opciones_nuevas) {
     const subopciones = document.getElementById(opcion_derivada);
     // Limpiar opciones actuales
     subopciones.innerHTML = "";
@@ -37,3 +48,4 @@ export function actualizar_opciones_objeto(opcion_base, opcion_derivada, selecci
         });
     }
 }
+
